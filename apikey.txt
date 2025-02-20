@@ -1,0 +1,1 @@
+https://colorado-diningmenus.nutrislice.com/menu/api/digest/school/schoolname/menu-type/lunch/date$today_date?format=json
