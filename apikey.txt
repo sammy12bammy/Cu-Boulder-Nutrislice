@@ -1,2 +1,14 @@
-working api for sewell:
+Sewell breakfast:
 https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/sewall-dining-center/menu-type/executive-chefs-place/2025/02/20/
+c4c Asia All Day: 
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/c4c-asia-all-day/2025/02/20/
+Village Dining Curry Road:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_curryroad/2025/02/20/
+Village Toast:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_toast/2025/02/20/
+Village Middleterranean
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_middleterranean/2025/02/20/
+Village Hearth
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_hearth/2025/02/20/
+Village Grange
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_grange/2025/02/20/
