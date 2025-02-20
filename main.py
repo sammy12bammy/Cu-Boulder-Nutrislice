@@ -1,40 +1,51 @@
+#relies on requests - pip install requests
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 
-# Set the timezone offset for America/Chicago (CST/CDT)
-current_hour = datetime.utcnow().hour - 6  # CST is UTC-6, adjust for CDT if needed
-
-# Determine if we should show today's or tomorrow's menu
-# if current_hour < 14:
-#     date2use = datetime.today()
-# else:
-#     date2use = datetime.today() + timedelta(days=1)
-date2use = datetime.today()
-
-# Format the date in the required '/YYYY/MM/DD/' format
-today_date = date2use.strftime('/%Y/%m/%d/')
-
-# Construct the API URL
-#https://colorado-diningmenus.nutrislice.com/menu/sewall-dining-center/executive-chefs-place/{today_date}?format=json
-menu_url = f"https://colorado-diningmenus.nutrislice.com/menu/sewall-dining-center/executive-chefs-place/{today_date}?format=json"
-
-# Fetch JSON data from the API
-response = requests.get(menu_url)
-
-# Check if the request was successful
-if response.status_code == 200:
-    json_data = response.json()  # Convert response to JSON
-
-    # Extract menu items if they exist
-    menu_items = json_data.get("menu_items", [])
-
-    # Format the menu output
-    if menu_items:
-        menulist = ", ".join(menu_items)
+# Fetches JSON API calls - don't change anything, returns a JSON thing type shi
+def fetch_menu(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
     else:
-        menulist = "No menu for today."
-else:
-    menulist = f"Error fetching menu: {response.status_code}"
+        print("Failed to fetch menu data.")
+        return None
 
-# Print the formatted menu output
-print(f"{date2use.strftime('%a')}: {menulist}")
+# Extracts today's meals from a JSON file and returns a list of meal names
+# Param: menu_data = JSON file
+# This function is modified to only show today's menu
+def extract_today_meals(menu_data):
+    today_date = datetime.today().strftime('%Y-%m-%d')
+    menu_list = []
+    
+    # First object in the API is a date, this contains the data
+    for day in menu_data.get("days", []):
+        if day.get("date") == today_date:
+            # loops through all menu items, looking for food
+            for item in day.get("menu_items", []):
+                # menu_items is an object consisting of 7 different attributes
+                # Only ones that are helpful to us are:
+                #   - Text: Description of menu item
+                #   - Object food: Most of the data we care about for food
+                #
+                # This line accesses the food item; with var "food" we can:
+                # Get name, description, image_url, nutrition_info, allergens/dietary recs type shi
+                if "food" in item and isinstance(item["food"], dict):
+                    food_name = item["food"].get("name")
+                    if food_name:
+                        menu_list.append(food_name)
+    return today_date, menu_list
+
+# Prints the menu
+def print_menu(date, items):
+    print(f"\nMenu for {date}:")
+    for item in items:
+        print(f"  - {item}")
+
+if __name__ == "__main__":
+    # api url currently only for Sewall breakfast
+    url = "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/sewall-dining-center/menu-type/executive-chefs-place/2025/02/20/"
+    menu_data = fetch_menu(url)
+    if menu_data:
+        today_date, menu_list = extract_today_meals(menu_data)
+        print_menu(today_date, menu_list)
