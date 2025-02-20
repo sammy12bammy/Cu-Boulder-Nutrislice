@@ -1,1 +1,8 @@
 https://colorado-diningmenus.nutrislice.com/menu/api/digest/school/schoolname/menu-type/lunch/date$today_date?format=json
+
+Breakfast at sewell:
+https://colorado-diningmenus.nutrislice.com/menu/sewall-dining-center/executive-chefs-place/2025-02-19?format=json
+lunch at sewell:
+https://colorado-diningmenus.nutrislice.com/menu/sewall-dining-center/sewall-s-lunch/2025-02-19
+dinner at sewell:
+https://colorado-diningmenus.nutrislice.com/menu/sewall-dining-center/executive-chefs-placesewall-diningall-day/2025-02-19
