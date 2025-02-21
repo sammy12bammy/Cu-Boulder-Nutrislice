@@ -45,7 +45,7 @@ def print_menu(date, items):
 if __name__ == "__main__":
     #api url currently only for Sewall breakfast
     #pick whatever url you want from the txt file and put into here
-    url = ""
+    url = "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/persian/2025/02/21"
     menu_data = fetch_menu(url)
     if menu_data:
         today_date, menu_list = extract_today_meals(menu_data)

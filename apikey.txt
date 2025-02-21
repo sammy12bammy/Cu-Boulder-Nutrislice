@@ -1,14 +1,34 @@
+All the api keys for different dining centers at CU Boulder
+Make sure to add the date after or the API will not work (add /2025/02/20 at the end of url)
+
 Sewell breakfast:
-https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/sewall-dining-center/menu-type/executive-chefs-place/2025/02/20/
-c4c Asia All Day: 
-https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/c4c-asia-all-day/2025/02/20/
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/sewall-dining-center/menu-type/executive-chefs-place/
+Sewell Lunch:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/sewall-dining-center/menu-type/sewall-s-lunch/
+Sewell Dinner:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/sewall-dining-center/menu-type/executive-chefs-placesewall-diningall-day/
+
+c4c Asia: 
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/c4c-asia-all-day/
+c4c Italian:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/italian/
+c4c Latin:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/latin/
+c4c Persia:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/persian/
+c4c grill:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/smokin-grill/
+
 Village Dining Curry Road:
-https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_curryroad/2025/02/20/
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_curryroad/
 Village Toast:
-https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_toast/2025/02/20/
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_toast/
 Village Middleterranean
-https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_middleterranean/2025/02/20/
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_middleterranean/
 Village Hearth
-https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_hearth/2025/02/20/
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_hearth/
 Village Grange
-https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_grange/2025/02/20/
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_grange/
+
+UMC Daily Dish:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/alferd-packer-grill/menu-type/apg_tabor/2025/02/21/
