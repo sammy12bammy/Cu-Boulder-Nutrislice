@@ -42,6 +42,32 @@ def print_menu(date, items):
     for item in items:
         print(f"  - {item}")
 
+#use for debugging purposes
+def fetch_url(hall, place):
+    if hall == "c4c":
+        if place == "Asian":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/c4c-asia-all-day/"
+        elif place == "Italian":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/italian/"
+        elif place == "Latin":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/latin/"
+        elif place == "Persian":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/persian/"
+        elif place == "grill":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/smokin-grill/"
+    elif hall == "village":
+        if place == "Curry":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_curryroad/"
+        elif place == "Toast":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_toast/"
+        elif place == "Middleterranean":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_middleterranean/"
+        elif place == "Hearth":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_hearth/"
+        elif place == "Grange":
+            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_grange/"
+    
+
 if __name__ == "__main__":
     #api url currently only for Sewall breakfast
     #pick whatever url you want from the txt file and put into here

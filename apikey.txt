@@ -31,4 +31,10 @@ Village Grange
 https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_grange/
 
 UMC Daily Dish:
-https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/alferd-packer-grill/menu-type/apg_tabor/2025/02/21/
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/alferd-packer-grill/menu-type/apg_tabor/
+
+Libby:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/libby/menu-type/libby-opening-august-16th/
+
+Farrend:
+https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/the-alley/menu-type/the-alley-at-farrand-s-all-day-id2009/
