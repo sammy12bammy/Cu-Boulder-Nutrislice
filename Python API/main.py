@@ -42,48 +42,34 @@ def print_menu(date, items):
     for item in items:
         print(f"  - {item}")
 
+#returns the menu in string format
 def get_string_menu(items):
     retStr = ""
     for item in items:
         retStr.append(" - {item}")
     return retStr
-
+#addes todays date to the url
 def add_date_url(url):
     date2use = datetime.today()
-    today_date = date2use.strftime('/%Y/%m/%d/')
+    today_date = date2use.strftime('%Y/%m/%d/')
     return url + today_date
 
-#use for debugging purposes
-def fetch_url(hall, place):
-    if hall == "c4c":
-        if place == "Asian":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/c4c-asia-all-day/2025/02/27"
-        elif place == "Italian":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/italian"
-        elif place == "Latin":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/latin"
-        elif place == "Persian":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/persian"
-        elif place == "grill":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/smokin-grill"
-    elif hall == "village":
-        if place == "Curry":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_curryroad"
-        elif place == "Toast":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_toast"
-        elif place == "Middleterranean":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_middleterranean/2025/02/25"
-        elif place == "Hearth":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_hearth"
-        elif place == "Grange":
-            return "https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/village-center-dining/menu-type/vc_grange"
+#first based index (1 would return the first line)
+def fetch_from_file(index):
+    index = index - 1
+    #makes sure the file closes after type
+    with open("apikey.txt", "r") as f:
+        for i in range(index):
+            f.readline()
+        return f.readline().strip()
 
 if __name__ == "__main__":
     #api url currently only for Sewall breakfast
     #pick whatever url you want from the txt file and put into here
-    url = fetch_url("village", "Curry")
+    url = fetch_from_file(23)
     url = add_date_url(url)
-    print("fetched from key: {url}")
+    print("fetched from key:")
+    print(url)
     menu_data = fetch_menu(url)  
     if menu_data:
         today_date, menu_list = extract_today_meals(menu_data)
