@@ -22,10 +22,8 @@ export function extractTodayMeals(menuData) {
     const todayDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
     const menuList = [];
 
-    // First object in the API is a date, this contains the data
     for (const day of menuData.days || []) {
         if (day.date === todayDate) {
-            // Loops through all menu items, looking for food
             for (const item of day.menu_items || []) {
                 if (item.food && typeof item.food === 'object') {
                     const foodName = item.food.name;
@@ -45,14 +43,30 @@ export function addDateUrl(url) {
     return url + todayDate;
 }
 
-// Main function to process menu URL and return processed data
-export async function getProcessedMenuData(url) {
-    const updatedUrl = addDateUrl(url);
-    const menuData = await fetchMenu(updatedUrl);
-    
-    if (menuData) {
-        return extractTodayMeals(menuData);
-    } else {
-        return { todayDate: "N/A", menuList: [] };
+// Read all URLs from a text file
+export function getUrlsFromFile(filePath) {
+    try {
+        const fileContent = fs.readFileSync(filePath, 'utf8');
+        return fileContent.split('\n').map(url => url.trim()).filter(url => url.length > 0);
+    } catch (error) {
+        console.error("Error reading file:", error);
+        return [];
     }
+}
+
+// Get processed data for all URLs
+export async function getMenuDataForUrls(filePath) {
+    const urls = getUrlsFromFile(filePath);
+    const menuDataList = [];
+
+    for (const url of urls) {
+        const updatedUrl = addDateUrl(url);
+        const menuData = await fetchMenu(updatedUrl);
+        
+        if (menuData) {
+            menuDataList.push(extractTodayMeals(menuData));
+        }
+    }
+
+    return menuDataList;
 }

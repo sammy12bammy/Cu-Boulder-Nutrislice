@@ -1,21 +1,31 @@
-// Fetch the menu data and display it in the HTML
-async function fetchMenuData() {
-    const url = 'https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/center-for-community/menu-type/italian/'; // Replace with your actual URL
-
+// Fetch all menu data and display it in separate divs
+async function fetchAllMenuData() {
     try {
-        const response = await fetch(`/menu?url=${encodeURIComponent(url)}`);
+        const response = await fetch('/menus');
         if (response.ok) {
-            const menuData = await response.json();
+            const allMenus = await response.json();
 
-            // Display the menu data in the HTML
-            const c4cItalain = document.getElementById("c4cItalain");
+            const menuContainer = document.getElementById("menuContainer");
+            menuContainer.innerHTML = ''; // Clear any existing content
 
-            if (menuData.menuList.length > 0) {
-                const menuHTML = `<strong>Menu for ${menuData.todayDate}:</strong><ul>`;
-                const items = menuData.menuList.map(item => `<li>${item}</li>`).join('');
-                c4cItalain.innerHTML = menuHTML + items + "</ul>";
+            if (allMenus.length > 0) {
+                allMenus.forEach((menuData, index) => {
+                    // Create a new div for each menu
+                    const menuDiv = document.createElement("div");
+                    menuDiv.classList.add("menu");
+                    
+                    const menuHTML = `
+                        <h2>Menu ${index + 1} for ${menuData.todayDate}</h2>
+                        <ul>
+                            ${menuData.menuList.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    `;
+                    
+                    menuDiv.innerHTML = menuHTML;
+                    menuContainer.appendChild(menuDiv); // Append the div to the container
+                });
             } else {
-                c4cItalain.innerHTML = "<p>No menu available for today.</p>";
+                menuContainer.innerHTML = "<p>No menus available.</p>";
             }
         } else {
             console.error("Failed to fetch menu data.");
@@ -25,5 +35,5 @@ async function fetchMenuData() {
     }
 }
 
-// Call the function to fetch and display the menu on page load
-window.onload = fetchMenuData;
+// Call the function to fetch and display the menus on page load
+window.onload = fetchAllMenuData;
