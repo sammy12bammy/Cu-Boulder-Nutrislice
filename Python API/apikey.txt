@@ -1,6 +1,3 @@
-All the api keys for different dining centers at CU Boulder
-Make sure to add the date after or the API will not work (add /2025/02/20 at the end of url)
-
 Sewell breakfast:
 https://colorado-diningmenus.api.nutrislice.com/menu/api/weeks/school/sewall-dining-center/menu-type/executive-chefs-place/
 Sewell Lunch:

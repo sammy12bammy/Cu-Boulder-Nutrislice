@@ -66,7 +66,7 @@ def fetch_from_file(index):
 if __name__ == "__main__":
     #api url currently only for Sewall breakfast
     #pick whatever url you want from the txt file and put into here
-    url = fetch_from_file(23)
+    url = fetch_from_file(18)
     url = add_date_url(url)
     print("fetched from key:")
     print(url)

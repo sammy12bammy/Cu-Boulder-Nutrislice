@@ -47,7 +47,9 @@ export function addDateUrl(url) {
 export function getUrlsFromFile(filePath) {
     try {
         const fileContent = fs.readFileSync(filePath, 'utf8');
-        return fileContent.split('\n').map(url => url.trim()).filter(url => url.length > 0);
+        if(fileContent.charAt(0) == 'h'){
+            return fileContent.split('\n').map(url => url.trim()).filter(url => url.length > 0);
+        }
     } catch (error) {
         console.error("Error reading file:", error);
         return [];
